@@ -1,6 +1,6 @@
 import React , {useContext} from 'react'
-import {Col , Card , Image , ListGroup , ListGroupItem , Button} from 'react-bootstrap'
-import * as Icon from 'react-bootstrap-icons';
+import { Card, Col, Divider, Button } from 'antd'
+import {EditOutlined} from '@ant-design/icons'
 import {styleContext , editContext , updatedUserContext} from './context'
 
 function Single({data})
@@ -22,29 +22,31 @@ function Single({data})
         window.location.href="#edit"
     }
 
+    const { Meta } = Card;
     return (
         <>
-            <Col sm={4}>
-                <Card style={styleId === data.id.toString() ? { backgroundColor: '#d1e7dd', width: '18rem' } : { width: '18rem' }} className='cardtop' id={data.id} onClick={() => {setStyleId('')}}>
-                    <Image style={{height : 286}} src={data.avatar} alt ="" rounded fluid/>
-                    <Card.Body>
-                        <Card.Title>User Info ({data.id})</Card.Title>
-                        <Card.Text>
-                            Lorem ipsum odor amet, consectetuer adipiscing elit.
+            <Col sm={8}>
+                <Card
+                    style={styleId === data.id.toString() ? { backgroundColor: '#d1e7dd', width: '18rem' , marginTop: '2%' , borderRadius : '10px'} : { width: '18rem' , marginTop: '2%' , borderRadius : '10px' }}  id={data.id} onClick={() => {setStyleId('')}}
+                    hoverable
+                    cover={<img style={{height : 286 , borderRadius : '10px'}} src={data.avatar} alt ="" />}
+                >
+                    <Meta
+                        title={<b><u>{'User Info' + (data.id) + " :"}</u></b>}
+                        description="Lorem ipsum odor amet, consectetuer adipiscing elit.
                             Vel nullam eleifend vivamus. Augue urna sed velit elit.
-                            Malesuada sodales ridiculus sodales. Tempor netus varius mauris.
-                        </Card.Text>
-                    </Card.Body>
-                    <ListGroup className="list-group-flush">
-                        <ListGroupItem style = {styleId === data.id.toString() ? {backgroundColor : '#d1e7dd'} : {}}><u>FirstName:</u> {data.id === userUpdate.id ? data.first_name = userUpdate.first_name && userUpdate.first_name : data.first_name}</ListGroupItem>
-                        <ListGroupItem style = {styleId === data.id.toString() ? {backgroundColor : '#d1e7dd'} : {}}><u>LastName:</u> {data.id === userUpdate.id ?  data.last_name = userUpdate.last_name && userUpdate.last_name : data.last_name}</ListGroupItem>
-                        <ListGroupItem style = {styleId === data.id.toString() ? {backgroundColor : '#d1e7dd'} : {}}><u>Email:</u> {data.id === userUpdate.id ? data.email = userUpdate.email && userUpdate.email : data.email}</ListGroupItem>
-                    </ListGroup>
-                    <Card.Body>
-                        <center><Button onClick = {() => handleEdit(data.id)}><Icon.Pencil />{' '} Edit</Button></center>
-                    </Card.Body>
+                            Malesuada sodales ridiculus sodales. Tempor netus varius mauris."
+                    />
+                    <Divider>First Name</Divider>
+                    <center><Meta description={data.id === userUpdate.id ? data.first_name = userUpdate.first_name && userUpdate.first_name : data.first_name} /></center>
+                    <Divider>Last Name</Divider>
+                    <center><Meta description={data.id === userUpdate.id ? data.last_name = userUpdate.last_name && userUpdate.last_name : data.last_name} /></center>
+                    <Divider>Email</Divider>
+                    <center><Meta description={data.id === userUpdate.id ? data.email = userUpdate.email && userUpdate.email : data.email} /></center>
+                    <Divider />
+                    <center><Button type='primary' onClick={() => handleEdit(data.id)}><EditOutlined />{' '}Edit</Button></center>
                 </Card>
-            </Col>        
+            </Col>   
         </>
     )
 }
