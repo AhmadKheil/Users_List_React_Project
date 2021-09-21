@@ -1,5 +1,6 @@
 import React from 'react'
 import { Layout, Menu } from 'antd'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../index.css'
 import 'antd/dist/antd.css';
 import { HomeOutlined , UnorderedListOutlined , EditOutlined , InfoCircleOutlined} from '@ant-design/icons';
