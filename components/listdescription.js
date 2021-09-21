@@ -1,21 +1,26 @@
 import React from 'react'
-import { Container , Button} from 'react-bootstrap'
 import { LoremIpsum } from 'react-lorem-ipsum';
-import * as Icon from 'react-bootstrap-icons';
+import {LaptopOutlined } from '@ant-design/icons';
+import { Layout , Button , Tooltip} from 'antd'
 
 function Description()
 {
+    const { Content } = Layout
     return (
         <>
-            <Container className='desc'>
-                <h1>Users List</h1>
-                <h4><LoremIpsum p={1}/></h4>
-            </Container>
-            <Container>
-                <center>
-                     <Button variant="primary">Read more</Button>{' '}<Button variant="outline-dark"><Icon.Laptop/> Watch demo</Button>
-                </center>
-            </Container>
+            <Layout style={{backgroundColor : 'white' , margin : '0 7% 0 7%' }}>
+                <Content className='desc'>
+                    <h1>Users List</h1>
+                    <h4><LoremIpsum p={1}/></h4>
+                </Content>
+            </Layout>
+            <Layout style={{backgroundColor : 'white' , margin : '0 7% 0 7%' }}>
+                <Content>
+                    <center>
+                    <Button type="primary">Read more</Button>{' '}<Tooltip title="watch demo"><Button icon={<LaptopOutlined />}>Watch Demo</Button></Tooltip>
+                    </center>
+                </Content>
+            </Layout>
         </>
     )
 }
