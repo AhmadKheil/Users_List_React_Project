@@ -1,31 +1,25 @@
 import React from 'react'
-import { Navbar , Container , Nav} from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Layout, Menu } from 'antd'
 import '../index.css'
-import * as Icon from 'react-bootstrap-icons';
+import 'antd/dist/antd.css';
+import { HomeOutlined , UnorderedListOutlined , EditOutlined , InfoCircleOutlined} from '@ant-design/icons';
 
 function Header()
 {
+    const { Header } = Layout;
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='nav'>
-        <Container>
-            <Navbar.Brand href="#">
-                    <Icon.CardList className='icon' />
-                    {' '}Users List
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="me-auto">
-                <Nav.Link href="#">Home</Nav.Link>
-                <Nav.Link href="#cards" >Users List</Nav.Link>
-                </Nav>
-                <Nav>
-                <Nav.Link href="#edit" >Edit users</Nav.Link>
-                <Nav.Link eventKey={2} href="#about">About</Nav.Link>
-                </Nav>
-            </Navbar.Collapse>
-        </Container>
-        </Navbar>
+        <>
+        <Layout>
+            <Header className="header">
+            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+                <Menu.Item key="1"><a href="#1"><HomeOutlined /> Home</a></Menu.Item>
+                <Menu.Item key="2"><a href="#cards"><UnorderedListOutlined /> Users List</a></Menu.Item>
+                <Menu.Item key="3"><a href="#edit"><EditOutlined /> Edit Form</a></Menu.Item>
+                <Menu.Item key="4"><a href="#about"><InfoCircleOutlined /> About</a></Menu.Item>
+            </Menu>
+            </Header>
+        </Layout>
+         </>
     )
 }
 export default Header
