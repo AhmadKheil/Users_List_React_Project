@@ -17,7 +17,7 @@ function Description()
             <Layout style={{backgroundColor : 'white' , margin : '0 7% 0 7%' }}>
                 <Content>
                     <center>
-                    <Button type="primary">Read more</Button>{' '}<Tooltip title="watch demo"><Button icon={<LaptopOutlined />}>Watch Demo</Button></Tooltip>
+                    <Button type="primary">Read more</Button>{' '}<Tooltip title="Watch demo"><Button icon={<LaptopOutlined />}>Watch Demo</Button></Tooltip>
                     </center>
                 </Content>
             </Layout>
